@@ -39,7 +39,7 @@ imgarray, lblarray = extractImagesAndLabels("cifar-10-batches-py/", "data_batch_
 categories = extractCategories("cifar-10-batches-py/", "batches.meta")
 
 cats = []
-for i in range(0,10):
+for i in range(0,50):
     saveCifarImage(imgarray[i], "./", "image"+(str)(i))
     category = lblarray[i].asnumpy()
     category = (int)(category[0])
@@ -48,7 +48,7 @@ for i in range(0,10):
     #insert the compressed sensing code here
     #we have extracted 50 images and it is in the folder. try iterating through those images and apply compressed sensing on it
     #save the output in another folder
-for id in range(10):
+for id in range(50):
     path='C:/Users/Lakshmi Sridevi/data/'+'image'+str(id)+'.png'
     
     if os.path.exists(path):
