@@ -78,7 +78,7 @@ for id in range(50):
         #Xa1=cv2.cvtColor(Xa,cv2.COLOR_GRAY2BGR)
         cv2.imwrite('C:/Users/Lakshmi Sridevi/data/output'+'/'+str(cats[id])+'_'+str(id)+'.png',Xa)
     else:
-        print ("Check code")
+        print ("File does not exist")
     
     
     
