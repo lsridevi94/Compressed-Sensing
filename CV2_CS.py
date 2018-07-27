@@ -5,6 +5,7 @@ import cv2
 import os.path
 import scipy.fftpack as spfft
 from sklearn.linear_model import Lasso
+import matplotlib
 
 def extractImagesAndLabels(path, file):
     f = open(path+file, 'rb')
@@ -50,7 +51,7 @@ for i in range(0,50):
     #save the output in another folder
 for id in range(50):
     path='C:/Users/Lakshmi Sridevi/data/'+'image'+str(id)+'.png'
-    
+    #Xat=[]
     if os.path.exists(path):
         Xorig=cv2.imread(path)
         
@@ -69,14 +70,16 @@ for id in range(50):
         )
         A = A[ri,:]
         lasso = Lasso(alpha=0.001)
+        
         lasso.fit(A, b)
     
         Xat = np.array(lasso.coef_).reshape(nx, ny).T
-        
+        print (Xat)
         Xa = idct2(Xat)
         #print (Xa.shape)
         #Xa1=cv2.cvtColor(Xa,cv2.COLOR_GRAY2BGR)
-        cv2.imwrite('C:/Users/Lakshmi Sridevi/data/output'+'/'+str(cats[id])+'_'+str(id)+'.png',Xa)
+        
+        #cv2.imwrite('C:/Users/Lakshmi Sridevi/data/output'+'/'+str(cats[id])+'_'+str(id)+'.png',Xat)
     else:
         print ("File does not exist")
     
